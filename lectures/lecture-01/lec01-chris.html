@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lecture 01</title>
+    <meta charset="utf-8">
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <!-- <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          CommonHTML: {
+            scale: 100
+          }
+        });
+    </script> -->
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            commonHTML: { 
+                scale: 100 
+            },
+            extensions: ["tex2jax.js"],
+            jax: [
+                "input/TeX", 
+                "output/HTML-CSS"
+            ],
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            "HTML-CSS": { fonts: ["STIX"] }
+        });
+    </script>
+    <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="https://chrislarson1.github.io/remark-formatting/style.css">  
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# ANLY-580
+# Natural Language Processing
+
+#### Lecture 01
+
+Course intro + refresher
+
+
+<br/>
+
+Georgetown University
+
+Fall 2022
+
+---
+## Lesson plan
+
+- Lecture
+    - Instructor + TA intros
+    - Course logistics
+    - Course overview
+    - Math refresher
+- Lab
+    - Github setup
+    - Python environment setup
+    - Python refresher
+
+---
+
+## Instructor: Chris Larson
+
+<br/>
+
+<img src='content/chris-background.png'; style="width:107%;"/>
+
+---
+
+## Instructor: Trevor Adriaanse
+
+<br/>
+
+<img src='content/trevor-background.svg'; style="width:107%;"/>
+
+
+---
+
+## Teaching Assistants
+
+- Ercong Luo
+- Jingson Gao
+- Linpei Zhang
+- Chao Li
+- Changwen Li
+
+---
+
+## Course logistics
+
+| Section |  Time          | Location |
+| :---:   | :----:         | :-----: |
+| I       |  Wed 3:30-6pm  |  ICC 115 |
+| II      |  Thurs 3:30-6pm  |  ICC 103 |
+| III     |  Mon 6:30-9pm  |  ICC 101 |
+
+### Office hours 
+
+Standard office hours will be held after class. Virtual sessions will be scheduled periodically throughout the semester as needed.
+
+### Github
+
+This course will be (partially) conducted through Github. The course github repository is: [https://github.com/chrislarson1/GU-ANLY-580-FALL-2022](https://github.com/chrislarson1/GU-ANLY-580-FALL-2022)
+
+
+### Discord
+
+The preferred method of (non-verbal) communication in this course is our Discord workspace. Click [here](https://discord.gg/cuBkfzxu) for access. Importantly, please consider posting questions on the public channel rather than DMing me and the TAs. Your fellow classmates will thank you for it. This workspace is shared by all sections.
+
+---
+
+## Quiz 01
+
+Quiz 01 is a bit unique. It's intended to ensure that you're aware of and accept the course policies set forth in the syllabus. 
+
+### Grade: 3%
+
+See syllabus for due date
+
+---
+
+## Assignment 01
+
+Assignment 01 is aimed at getting you up to speed with some of the underlying concepts used in machine learning and NLP. Feel free to use definitions from Wikipedia to aid in this self study, but refrain from searching for answers directly. If you get stuck, team up with no more than three classmates and work together. If you work in teams, please list your teammates on your submission. 
+
+### Topics covered
+- Linear algebra
+
+- Probability theory
+
+### Grade: 10%
+
+See syllabus for due dates
+
+---
+
+
+class: center, middle
+
+# Course Overview
+
+---
+
+## Real world NLP systems
+
+<br/>
+
+<img src='content/real-world-systems.png'; style="width:107%;"/>
+
+---
+
+## What is Natural Language Processing (NLP)
+
+- Closely related and has evolved along with the field of computational linguistics
+
+    - Linguistics is primarily conserned with language itself; in particular its structure, the nature of meaning that can be derived it, and the ability to reason over it.
+
+    - The term *natural language processing*, or *NLP* for short, most often refers to modern machine learning systems that allow computers to understand natural language. These systems almost invariably leverage statistical machine learning. Examples of this include search, translation, speech recognition, and conversational assistants, just to name a few.
+
+- This course will focus on *NLP* as described above
+
+---
+
+## What makes NLP interesting?
+
+--
+
+- Ambiguity
+    - Where did the child say that he got hurt?
+    - Every eight seconds some woman in the U.S. gives birth
+
+--
+
+- Polysemy
+    - The same word can mean different things in different contexts (e.g., *leaves*)
+
+--
+
+- Language use varies across domains
+
+--
+
+- Sparse data (Zipf’s Law) is an observation about the frequency distribution of words in natural language
+
+<img src='content/zipf.png'; class="center-content"; style="width:40%;"/>
+
+--
+
+- World knowledge plays a huge role in making conversational natural and human like
+- Domain knowledge plays a huge role in enabling systems to complete tasks reliably
+
+
+---
+
+## Statistical machine learning approach
+
+<br/>
+
+<img src='content/machine-learning-diagram.png'; class="center-content"; style="width:100%;"/>
+
+---
+
+## Neural Networks
+
+- In the early days of AI, researchers believed that with enough handwritten rules, a computer could achieve human-level intelligence
+
+--
+
+- The key issue with knowledge base approaches is they lack room for generalization. Machine learning emerged as a solution to this problem: allow the computer to determine its own behaviors without explicit programming
+
+--
+
+- Today, deep learning is the most widely used type of machine learning
+
+--
+
+- Deep learning organizes representations of data as hierarchies of increasingly complex concepts
+
+<br/>
+
+--
+
+<img src='content/nn.png'; class="center-content"; style="width:50%;"/>
+
+---
+
+## Conversational is the holy grail
+
+- Virtual assistants
+    - [x] coherence
+    - [X] relevance
+    - [X] reference resolution
+    - [X] domain knowledge (small subset)
+    - [ ] world knowledge
+
+- Open domain chatbots
+    - [ ] coherence
+    - [X] relevance
+    - [ ] reference resolution
+    - [X] domain knowledge (large subset)
+    - [X] world knowledge
+
+<figure>
+    <iframe src="https://www.youtube.com/embed/aUSSfo5nCdM?t=37"; width="400" height="232"; allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen > </iframe> 
+</figure>
+
+---
+
+## Philisophical questions
+
+- AIs that are built on highly structured representations of data (c.f., dependency trees) are naturally equipped to perform human-like tasks such as arithmetic and deductive reasoning; large langauge models are not (though this is becoming less true). 
+
+--
+
+- So while it's clear that the human brain is mechanistically much closer to an ANN than it is a dependency tree, it is also true that rules-based methods allow us to automate certain *human*-like capabilities much more naturally.
+
+--
+
+- This raises an important question: are large language models enough, or is there *something else* needed to bridge the gap?
+
+--
+    - Almost everyone agrees that DNN machinery needs to be extended in non-trivial ways.
+    
+--
+
+    - But the deep learning revolution is still in its infancy, and there remains many incremental improvements in model architecture and training procedures that will continue to enable us to tackle previously unsolved problems, similar to those made in autonomous robots (cars, drones, humanoid), protein folding, genomics, search, speech recognition, and translation, to name only a few.
+    
+--
+
+    - tldr; the near-term reward is too high for the field as a whole to devote serious head-space and resources to these more fundamental questions, despite their immense importance.
+
+---
+
+## Bias and Fairness
+
+- Reflecting bias in data, and the methods used to collect data, into models that make decisions impacting humans is a problem that we are now stuck with. 
+
+--
+
+- This is because the defining characteristic of any good statistical machine learning systems is it's ability to generalize, and it does so by learning, inductively, the biases that exist in the data it was optimized on, or for RL systems (and by loose extension, humans), the environment through which it acquired its experience.
+
+--
+
+- An obvious conclusion then is that statistical machine learning systems can *learn* undesirable behaviors; we have clear evidence of this. Building machine learning systems in a way that does not adversely affect one population of humans relative to others, is one of the most important problems areas in AI. This is particulaly important in NLP given the pervasive and diverse nature of these systems.
+
+---
+
+class: center, middle
+
+# Math Refresher
+
+#### Linear Algebra
+
+---
+
+## Feature representation
+
+- By convention, we represent data as a matrix of numbers where:
+
+    - Columns correspond to features
+
+    - Rows correspond to observations of those features
+
+<br/>
+
+--
+
+$$
+\mathbf{X} = 
+\begin{bmatrix}
+x\_{1,1} & \dots & x\_{1,N} \\\
+\vdots & \ddots & \vdots \\\
+x\_{M,1} & \dots & x\_{M,N}
+\end{bmatrix}
+$$
+<br/>
+$$
+\begin{aligned}
+x\_{i,j} &=\; j^{th} \text{feature value of the} \; i^{th} \text{observation} \\\
+N &= \text{number of features} \\\
+M &= \text{number of observations}
+\end{aligned}
+$$
+
+---
+
+## Vector spaces, inner & outer products
+
+- In this class we represent data in a vector space
+
+--
+
+    - This means data points lie on a grid($N=2$), in a cube($N=3$), or hypercube ($N\geq4$)
+
+--
+
+- A *point* in space is represented by a vector
+
+--
+
+    - $\text{vector:} \quad \mathbf{x} \in \mathbb{R}^N$
+--
+
+    - $\text{vector components} \quad x\_{i} \in \mathbb{R} \quad where \quad 0 \leq i < N $
+--
+
+    - $\text{in other words} \quad \mathbf{x} = [x\_0, \dots, x\_{N-1}]$ 
+--
+
+- *Inner* and *dot* product are used synonomously in this course
+
+--
+
+$$
+\left< \mathbf{a}, \mathbf{b} \right> = \mathbf{a} \cdot \mathbf{b} = \sum_{i=0}^{N-1} a\_i b\_i \quad where \quad \mathbf{a}, \mathbf{b} \in \mathbb{R}^N
+$$
+
+--
+
+- Outer product:
+
+$$
+\mathbf{a} \otimes \mathbf{b} = \mathbf{a} \mathbf{b}^T =
+\begin{bmatrix}
+a\_1 b\_1  & \dots & a\_1 b\_N  \\\
+\vdots & \ddots & \vdots \\\
+a\_M b\_1 & \dots & a\_M b\_N
+\end{bmatrix}
+$$
+
+---
+
+## Tensors
+
+- Formal definition: context dependent
+
+--
+
+- Definition in this course: A linear transformation within or between two vector spaces
+
+--
+
+- Example: 
+
+$$
+\mathbf{A}\mathbf{x} = 
+\begin{bmatrix}
+A\_{1,1}  & \dots & A\_{1,N}  \\\
+\vdots & \ddots & \vdots \\\
+A\_{N,1} & \dots & A\_{N,N}
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+x\_1 \\\
+\vdots \\\
+x\_N
+\end{bmatrix}
+= 
+\begin{bmatrix}
+\sum\_{i=1}^{N} A\_{1,i}x\_i \\\
+\vdots \\\
+\sum\_{i=1}^{N} A\_{N,i}x\_i
+\end{bmatrix}
+$$
+
+--
+
+- Formally: $\mathbf{A}\mathbf{B} = \sum\_{k=0}^{N-1}A\_{i,k}B\_{k,j}$
+
+--
+
+- Hadamard a.k.a. element wise a.k.a. Schur product: $\big( \mathbf{A} \odot \mathbf{B} \big) = A\_{i,j} B\_{i,j}$ 
+
+---
+
+## Vector and Tensor norms
+
+- Measure of the size, or magnitude of a vector or tensor
+
+--
+
+- Formally, the following criteria qualify $f(\cdot)$ as a norm:
+
+--
+
+    - Positive definiteness: $f(\mathbf{x}) = 0 \quad iff \quad \mathbf{x} = \mathbf{0}$
+--
+
+    - Triangle inequality: $ f(\mathbf{x} + \mathbf{y}) \leq f(\mathbf{x}) + f(\mathbf{y}) $
+--
+
+    - Homogeneity: $ \forall\_\alpha \in \mathbb{R}: \; f(\alpha \mathbf{x}) = |\alpha|f(\mathbf{x}) $
+--
+
+- The ones we care about are:
+
+--
+
+    - LP norm: $ ||\mathbf{X}||\_p = \bigg( \sum\_i | x\_i |^p \bigg)^{1/p} $
+--
+
+    - Frobenius norm: $ || \mathbf{A} ||\_F = \sqrt{\sum\_{i,j} A\_{i,j}^2} $
+
+---
+
+## Distance metrics
+
+- The two distance metrics we care about in this course are Manhattan (L1) and Euclidean (L2), which are special cases of the Lp norm:
+
+--
+
+    - Manhattan: $ || \mathbf{a} - \mathbf{b} ||\_1 = \sum\_i | a\_{i} - b\_{i}  | $
+--
+
+    - Euclidean: $ || \mathbf{a} - \mathbf{b} ||\_2 = \sqrt{ \sum\_i \big( a\_i - b\_i  \big)^2 } $
+
+---
+
+## Matrix rank
+
+- A *full rank* matrix, $ \mathbf{A} \in \mathbb{R}^{N \times N} $, is one which has $N$ linearly independent column vectors, and similarly, $N$ linearly independent row vectors.
+
+--
+
+- Some intuition behind why *rank* of a matrix is important:
+--
+
+    - Transforming all of the infinite vectors spanning $ \mathbb{R}^N $ with a full rank matrix, $A$, will result in a set of vectors that also span $ \mathbb{R}^N $. We therefore say that $\mathbf{A}$ spans $ \mathbb{R}^N $.
+--
+
+    - By extension, it also must be true that if $\mathbf{A}$ is full rank it is a unique mapping from $\mathbb{R}^N \rightarrow \mathbb{R}^N $, or in other words, $ \mathbf{A}\mathbf{x} = \mathbf{y}$ must have a unique solution, $\mathbf{x}$, for all $\mathbf{y} \in \mathbb{R}^N$.
+--
+
+    - Extending this further, any matrix with rank $\leq N$ must be a non-unique mapping from $\mathbb{R}^N \rightarrow \mathbb{R}^N $. Such matrices are referred to as *singular*.
+--
+
+
+- Quiz: find the rank of the following two matrices
+
+--
+
+$$
+\mathbf{A} =
+\begin{bmatrix}
+1 & 2 & 7 \\\
+0.5 & 5 & 15.5 \\\
+1 & 3 & 10
+\end{bmatrix}
+$$
+
+--
+
+$$
+\mathbf{B} =
+\begin{bmatrix}
+1 & 6 & 7 \\\
+0.5 & 5 & 15.5 \\\
+1 & 3 & 10
+\end{bmatrix}
+$$
+
+---
+
+## Eigendecomposition
+
+- Definition: $\mathbf{A}\mathbf{v} = \lambda \mathbf{v}$
+
+--
+
+- Applies to square matrices
+
+--
+
+- Matrix decomposition: $\mathbf{A} = \mathbf{Q} \mathbf{\Lambda} \mathbf{Q}^T $
+
+--
+
+$$
+where \quad
+\mathbf{Q} = 
+\begin{bmatrix}
+v\_1^{(1)} & \cdots & v\_1^{(N)} \\\
+\vdots & \vdots & \vdots \\\
+v\_N^{(1)} & \cdots & v\_N^{(N)}
+\end{bmatrix} 
+\quad and \quad 
+\mathbf{\Lambda} = 
+\begin{bmatrix}
+\lambda\_1 & \cdots & 0 \\\
+\vdots & \ddots & \vdots \\\
+0 & \cdots & \lambda\_N
+\end{bmatrix} 
+$$
+
+<br/>
+
+--
+
+<img src='content/eigen-decomposition.png'; class="center-content"; style="width:50%;"/>
+
+---
+
+## Singular value decomposition
+
+- What if our matrix is not square?
+
+--
+
+- The *singular value decomposition* (SVD) is a widely used matrix factorization technique used for non-square (and square) matrices. 
+
+--
+
+- Definition: $ \mathbf{A} = \mathbf{U} \mathbf{\Sigma} \mathbf{V}^T \in \mathbb{R}^{M \times N}$
+
+--
+
+$$
+\mathbf{U} = 
+\begin{bmatrix}
+u\_1^{(1)} & \cdots & u\_1^{(M)} \\\
+\vdots & \vdots & \vdots \\\
+u\_M^{(1)} & \cdots & u\_M^{(M)}
+\end{bmatrix}
+$$
+
+$$
+\mathbf{\Sigma} = 
+\begin{bmatrix}
+\sigma\_1 & \cdots & 0 \\\
+\vdots & \ddots & \vdots \\\
+0 & \cdots & \sigma\_N \\\
+\vdots & \vdots & \vdots \\\
+0 & 0 & 0
+\end{bmatrix}
+$$
+
+$$
+\mathbf{V}^T = 
+\begin{bmatrix}
+v\_1^{(1)} & \cdots & v\_N^{(1)} \\\
+\vdots & \vdots & \vdots \\\
+v\_1^{(N)} & \cdots & v\_N^{(N)}
+\end{bmatrix}
+$$
+
+Note: $M > N \; \text{case}$
+
+---
+class: center, middle
+
+# Math Refresher
+
+#### Probability Theory
+
+---
+
+## Random Variables (RVs)
+
+--
+
+- Examples: UV index, temperature, geographic coordinates, hair color, skin color, coin flip outcome, daily precipitation, Gross domestic product, a stock price etc.
+
+--
+
+- A random variable is some event for which we describe the space of outcomes as a probability distribution.
+
+--
+
+- A probability distribution is defined by: 
+
+    - Continuous RVs: The probability *density* associated with the RV assuming each of the real values over some (potentially infinite) contiguous interval. This is referred to as a *probability density function*, or PDF. A widely used function that describes the probability of many real-valued phenomena is the Gaussian distribution.
+--
+
+    - Discrete RVs: The probability *mass* associated with the RV assuming each of its discrete values. This is referred to as a *probability mass function*, or PMF. In this course we are primarily concerned with PMFs. A widely used function that describes the probability of events with binary outcomes is the Bernoulli distribution. 
+--
+
+- A PMF, $P(x)$, must be:
+
+    - Bounded: $\quad \forall\_x \in \text{X}: \; 0 \leq P(x) \leq 1 $
+
+    - Normalized: $\quad \sum\_{x \in \text{X}} P(x) = 1 $
+
+---
+
+## Gaussian distribution
+
+<br/>
+
+- Univariate: 
+
+$$
+N\big( x; \mu, \sigma^2 \big) = \frac{1}{\sqrt{2 \pi \sigma^2 }} \exp \bigg( \frac{ \big(x - \mu)^2}{2 \sigma^2}  \bigg) 
+$$
+
+- Multivariate
+
+$$
+N\big( \mathbf{x}; \boldsymbol{\mu}, \mathbf{\Sigma} \big) =
+\sqrt{\frac{1}{(2\pi)^N \det \mathbf{\Sigma} }} \exp \bigg(-\frac{1}{2}\big(\mathbf{x} - \boldsymbol{\mu}\big)^T \mathbf{\Sigma}^{-1}\big(\mathbf{x} - \boldsymbol{\mu} \big)  \bigg)
+$$
+$$
+where
+$$
+$$
+\mathbf{x} \in \mathbb{R}^N, \quad \mathbf{\Sigma} \in \mathbb{R}^{N \times N}
+$$
+
+---
+
+## Bernoulli distribution
+
+<br/>
+
+- Describes phonomena that have binary outcomes
+
+--
+
+- Probability mass function:
+
+$$
+P(y) = 
+\begin{cases}
+\theta & y = Y\_0 \\\
+1 - \theta & y = Y\_1
+\end{cases}
+$$
+
+$$
+\text{where}
+$$
+$$
+y \in Y
+$$
+
+$$
+Y=\\{Y\_0,Y\_1\\}
+$$
+
+$$
+0 \leq \theta \leq 1
+$$
+
+--
+
+- If we choose represent $y$ using $Y=\\{0,1\\}$ we can represent our Bernoulli PMF succinctly as:
+
+$$
+P(y) = \theta^y \big(1 - \theta)^{1 - y}
+$$
+
+---
+
+## Joint distributions
+
+--
+
+- Joint distribution
+
+$$
+P(x,y) \quad \text{where} \quad P(\cdot) \in \mathbb{R}^{|X| \times |Y|}
+$$
+
+--
+
+- Marginal distribution
+
+$$
+P(x) = \sum\_y P(x,y)
+$$
+
+--
+
+- Conditional distribution
+
+$$
+P(y|x) = \frac{p(x,y)}{p(x)}
+$$
+
+---
+
+## The product rule
+
+- The product rule is used extensively in statistical machine learning, primarily as a tool to help make parameter estimation a tractable problem in various settings.
+
+--
+
+- The product rule:
+
+$$
+P(x^{(1)}, \dots, x^{(n)}) = P(x^{(1)}) \prod\_{i=2}^N P(x^{(i)} | x^{(1)}, \dots, x^{(i-1)})
+$$
+
+---
+
+## Independence
+
+
+--
+
+- Independence condition:
+
+$$
+P(x,y) = P(x)P(y)
+$$
+
+--
+
+- Conditional independence condition:
+
+$$
+P(x,y | z) = P(x | z) P(y | z)
+$$
+
+---
+
+## Expected value and covariance functions
+
+--
+
+- Expectation 
+
+$$
+\mathbb{E}\_{x \sim P} \big[ f(x) \big] = \sum\_x P(x) f(x)
+$$
+
+--
+
+- Variance
+
+$$
+var \big[ f(x) \big] = \mathbb{E} \big[ f(x) - \mathbb{E} \big[ f(x) \big] \big]
+$$
+
+--
+
+- Covariance of two functions
+
+$$
+cov \big[ f\_1(x), f\_2(x) \big] = \mathbb{E} \bigg[ \Big( f\_1(x) - \mathbb{E} \big[ f\_1(x) \big] \Big) \Big( f\_2(x) - \mathbb{E} \big[ f\_2(x) \big]  \Big) \bigg]
+$$
+
+--
+
+- Covariance of a random vector $\mathbf{x}$
+
+$$
+cov \big[ \mathbf{x}, \mathbf{x} \big] = \mathbb{E} \bigg[ \Big( \mathbf{x} - \mathbb{E} \big[ \mathbf{x} \big] \Big) \Big( \mathbf{x} - \mathbb{E} \big[ \mathbf{x} \big]  \Big)^T \bigg]
+= \mathbb{E} \bigg[ \mathbf{x}\mathbf{x}^T - \mathbb{E}\big[\mathbf{x}\big]\mathbb{E}\big[\mathbf{x} \big]^T \bigg]
+$$
+
+---
+
+## Bayes' rule
+
+- Bayes' rule is equivalent to the product rule. Given two random variables, $x$ and $y$, their joint distribution can be factored in either of two ways:
+
+$$
+\begin{aligned}
+P(x, y) &= P(y|x) P(x) \\\
+&= P(x | y) P(y)
+\end{aligned}
+$$
+
+--
+
+- Visual proof
+
+<img src='content/bayes-rule.png'; class="center-content"; style="width:57%;"/>
+
+--
+
+- Bayes' Rule refers to the application of the product rule to statistical inference problems. For example, that of infering the most likely value of one variable, $y$, given an observation of another variable, $x$, and knowledge of the conditional, $P(y|x)$ (*likelihood*), and marginals $P(y)$ (*prior*) and $P(x)$ (*evidence*). The LHS of Bayes' Rule is referred to as the *posterior* distribution. 
+
+$$
+\begin{aligned}
+P(y|x) &= \frac{P(x|y)P(y)}{P(x)} \\\
+\text{Posterior} &= \frac{\text{Likelihood} \cdot \text{Prior} }{\text{Evidence}}
+\end{aligned}
+$$
+
+---
+
+## Information, entropy, and divergence
+
+- Shannon postulated that any measure of informativeness of an event should satisfy three conditions:
+
+--
+
+    - Any event with probability 1 yields no Information
+--
+
+    - The informativeness of an event varies inversely with its probability
+--
+
+    - The total information emitted from independent events is purely additive
+--
+
+- Shannon used these conditions to define two founding principles of information theory:
+
+    - Self-information: $I(x) = - \log P(x) $
+
+    - Shannon Entropy: $ H(P) = \mathbb{E}\_{x \sim P}\big[ I(x) \big] $
+
+--
+
+- Kullback-Leibler divergence: 
+
+$$ 
+D\_{KL}\big( P || Q \big) = \mathbb{E}\_{x \sim P} \bigg[ \log \frac{P(x)}{Q(x)} \bigg] 
+$$
+
+--
+
+- Cross Entropy: 
+
+$$ 
+\begin{aligned}
+H(P,Q) &= H(P) + D\_{K,L}(P || Q) \\\
+&= - \mathbb{E}\_{x \sim P} \big[ \log Q(x) \big] \\\
+&= - \sum\_{x \sim P} P(x) \log Q(x)
+\end{aligned}
+$$
+
+---
+
+## The Machine Learning Problem Formulation
+
+<img src='content/ml-problem-formulation.png'; class="center-content"; style="width:90%;"/>
+
+---
+
+## Maximum Likelihood Estimation (MLE)
+
+<img src='content/mle.png'; class="center-content"; style="width:90%;"/>
+
+---
+
+class: center, middle
+
+# Lab 01
+
+## Python environment and Github setup
+
+[Lab 01](https://github.com/chrislarson1/GU-ANLY-580-FALL-2022/labs/lab-01)
+
+---
+
+    </textarea>
+    <div class="footer"><p>Georgetown University | Fall 2022 | ANLY 580 | Lecture 02</p></div>  
+    <script> var slideshow = remark.create(); </script>
+</body>
+  
+
+</html>
