@@ -2,6 +2,7 @@ datasets
 fasttext
 gensim
 jupyterlab
+matplotlib
 mxnet
 plotly==5.1.0
 scipy
