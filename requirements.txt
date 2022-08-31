@@ -12,4 +12,3 @@ torch
 torchvision
 torchaudio
 transformers
-virtex
