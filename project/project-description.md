@@ -78,3 +78,12 @@ Course projects will be submitted through Github Classroom. Instructions will be
 3. Final submission: The final submission will be graded on a number of axes. For a project that is modestly ambitious in it's end goal, heavy emphasis will be placed on the quality of the demo/presentation/report, whether or not the system is thoroughly evaluated, and how close you come to achieving the deliverables stated in your proposal. Sometimes things don't always go as planned, and you should have this expectation from the start. When this happens, make sure to demonstrate that you understand the underlying issue(s); this will be considered when we assign grades. For more ambitious projects, heavier focus will be placed on individual results. For example, if your final project is to re implement a popular transformer architecture from scratch, or tweak some existing modeling approach in unique way, then success in any one area (for example just getting a model to train) will be considered much more heavily. The intention here is to allow everyone to get real world experience working on a real problem within their comfort zone.
 
 *Note:* If you are having a hard time coming up with your own project idea, we recommend you choose one of the default projects (or something closely related). Also, if you need assistance with finding a partner/group, please contact one of the TAs or the instructor ASAP.
+
+
+#
+## Example projects
+
+- (2021) Constrained Long Form Question Answering
+  - https://celeritasml.netlify.app/posts/2021-12-01-eli5c/
+  - https://www.youtube.com/watch?v=XGEBU51gr00
+  - https://huggingface.co/jsgao/bart-eli5c
